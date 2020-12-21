@@ -3,6 +3,9 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const conn = require("./database/database");
+//importando rotas
+const categoriesController = require("./categories/CategoriesController");
+const articlesController = require("./articles/ArticleController");
 
 //view engine
 app.set('view engine','ejs');
@@ -19,8 +22,12 @@ conn.authenticate().then(()=>{
 });
 
 //------------------rotas---------------------------
+
+app.use("/",categoriesController);
+app.use("/",articlesController);
+
 app.get("/",(req,res)=>{
-    res.send("index");
+    res.render("index");
 });
 
 
