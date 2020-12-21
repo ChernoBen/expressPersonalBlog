@@ -9,7 +9,7 @@ app.set('view engine','ejs');
 //body parser
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
-//arquivos estativos
+//arquivos estaticos
 app.use(express.static('public'));
 //database conn
 conn.authenticate().then(()=>{
